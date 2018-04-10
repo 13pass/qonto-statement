@@ -1,0 +1,18 @@
+node_modules
+*.log
+package-lock.json
+
+# IDE artifacts
+*~
+\#*\#
+*.swp
+.project
+.idea
+*.DS*
+._entypo
+._entypo-social
+.smbdelete*
+test-data/*
+/data/*
+.env
+.vscode
