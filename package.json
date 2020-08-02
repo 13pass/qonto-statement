@@ -1,6 +1,6 @@
 {
   "name": "qonto-statement",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Generate monthly statement from qonto API",
   "main": "cronJob.js",
   "scripts": {
