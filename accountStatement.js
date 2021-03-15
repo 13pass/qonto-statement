@@ -1,8 +1,10 @@
 'use strict;'
 
+const json2csv = require('json2csv').parse;
 const moment = require('moment');
 const Qonto = require('qonto');
-const json2csv = require('json2csv').parse;
+const request = require('request-promise-native');
+
 const parserOptions = {
   delimiter:';',
   fields: [
@@ -40,6 +42,7 @@ const QontoClient = new Qonto({
 
 exports.exportToCsv = exportToCsv;
 exports.getLastMonthStatement = getLastMonthStatement;
+exports.qontoRequest = qontoRequest;
 
 async function exportToCsv (transactions) {
   if (!transactions){
@@ -58,4 +61,25 @@ async function getLastMonthStatement (iban) {
   }
   return JSON.parse(result.response);
 }
+
+async function qontoRequest ({
+  path,
+  queryParams = {},
+  secret,
+  slug
+}) {
+  const options = {
+    method: 'GET',
+    url: `http://thirdparty.qonto.eu/${path}`,
+    qs: queryParams,
+    headers: {
+      Authorization: `${slug}:${secret}`
+    }
+  };
+  console.log(options);
+  let body = await request(options);
+  return JSON.parse(body);
+}
+
+
 
