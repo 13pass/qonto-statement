@@ -24,7 +24,7 @@
     "dropbox": "^4.0.28",
     "json2csv": "^4.5.2",
     "lodash": "^4.17.19",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "node-fetch": "^2.6.0",
     "qonto": "^1.0.0",
     "request": "^2.88.0",
